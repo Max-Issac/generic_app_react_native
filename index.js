@@ -17,7 +17,10 @@ const Stack = createStackNavigator();
 const RootRouter = () => (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Test">
-        <Stack.Screen name="Home" component={App} options={{title:"Home"}}/>
+        <Stack.Screen 
+          name="Home" 
+          component={App} 
+          options={({navigation,route})=>({title:route?.params?.name})}/>
         <Stack.Screen name="Test" component={Test} options={{title:"Test"}}/>
       </Stack.Navigator>
     </NavigationContainer>

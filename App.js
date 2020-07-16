@@ -39,6 +39,7 @@ class App extends React.PureComponent{
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+          <Text>{"i am here "+this.props?.route?.params?.name}</Text>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>

@@ -23,7 +23,13 @@ class Test extends React.PureComponent{
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <TouchableOpacity onPress={()=>this.props.navigation.navigate("Home")} >
+        <TouchableOpacity onPress={
+          ()=>
+          {
+            // this.props.navigation.navigate("Home",{name : "ddddddd"})
+            this.props.navigation.setOptions({title:"ttttt"})
+          }
+        } >
             <Text>hhhh</Text>
         </TouchableOpacity>
       </SafeAreaView>

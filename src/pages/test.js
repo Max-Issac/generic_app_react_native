@@ -26,8 +26,8 @@ class Test extends React.PureComponent{
         <TouchableOpacity onPress={
           ()=>
           {
-            // this.props.navigation.navigate("Home",{name : "ddddddd"})
-            this.props.navigation.setOptions({title:"ttttt"})
+            this.props.navigation.navigate("Home",{name : "ddddddd"})
+            // this.props.navigation.setOptions({title:"ttttt"})
           }
         } >
             <Text>hhhh</Text>

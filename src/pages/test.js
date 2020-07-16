@@ -24,7 +24,7 @@ class Test extends React.PureComponent{
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <TouchableOpacity onPress={()=>this.props.navigation.navigate("Home")} >
-            <Text>test</Text>
+            <Text>hhhh</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>

@@ -18,7 +18,9 @@ class Login extends React.PureComponent{
       email:"",
       password:"",
       isEnabled:false,//选择框
-      showInputText:false
+      showInputText:false,
+      error:false,
+      errorType : 0
     }
   }
 
@@ -38,20 +40,13 @@ class Login extends React.PureComponent{
     this.props.navigation.navigate("CreateAccount")
   }
 
-  emailFunc = () => {
-    return true
-  }
-
-  passFunc = () => {
-    return false
-  }
-
   login = () => {
     Keyboard.dismiss();
+    this.setState({error:!this.state.error})
   }
 
   render (){
-    let {email,password,isEnabled,showInputText} = this.state;
+    let {email,password,isEnabled,showInputText,error,errorType} = this.state;
     console.log('--->',email,password);
     return (
       <>
@@ -75,11 +70,12 @@ class Login extends React.PureComponent{
                 />
                 {showInputText?<Text style={[styles.inputAbsolute]}>Email</Text>:null}
               </View> */}
+              <Text></Text>
               <StatusInput 
                 style={{marginTop:35}}
                 onChangeText={this.inEmail}
                 placeholder={"Email"}
-                valiFunc = {this.emailFunc}
+                error = {error}
               />
               <View style={[styles.flexRow,{marginTop:25,position:"relative"}]}>
                 {/* <TextInput 
@@ -94,7 +90,7 @@ class Login extends React.PureComponent{
                   style={{flex:1}}
                   onChangeText={this.inPas}
                   placeholder={"Password"}
-                  valiFunc = {this.passFunc}
+                  error = {error}
                 />
                 <View style={{height:50,width:50,backgroundColor:"#dc6e35",borderRadius:10,overflow:"hidden",marginLeft:15}} />
                 {showInputText?<Text style={[styles.inputAbsolute]}>Password</Text>:null}

@@ -17,7 +17,6 @@ class StatusInput extends React.PureComponent{
 		super(props);
 		this.state={
 			value : "",
-			error : false,
 			showInputText:false,
 			inputEnd:false
 		}
@@ -33,19 +32,17 @@ class StatusInput extends React.PureComponent{
 	}
 
   onBlur = () => {
-		let {valiFunc} = this.props;
 		if(!(!!this.state.value)){
 			this.setState({showInputText:false})
 		}else{
 			//验证 如果为错 就 error
-			let errBool = valiFunc(this.state.value);
-			this.setState({error:errBool,inputEnd:true})
+			this.setState({inputEnd:true})
 		}
 	}
 
 	render(){
-		let {placeholder,style} = this.props;
-		let {value,error,showInputText,inputEnd} = this.state;
+		let {placeholder,style,error} = this.props;
+		let {value,showInputText,inputEnd} = this.state;
 		return (
 			<>
 				<View style={[style,{position:"relative"}]}>

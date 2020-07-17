@@ -15,7 +15,8 @@ import {
   Text,
   TouchableOpacity,
   StatusBar,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -27,32 +28,56 @@ class App extends React.PureComponent{
     this.state = {}
   }
 
+  login = () => {
+    this.props.navigation.navigate("Login");
+  }
+
+  createAccount = () => {
+    this.props.navigation.navigate("CreateAccount");
+  }
+
   render (){
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <TouchableOpacity style={styles.button,{marginBottom:20}}>
-          <Text>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text>Create Account</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-    </>
-  );
-}};
+    return (
+      <View style={{backgroundColor:"#675e59",flex:1,position:"relative"}}>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView style={{flex:1}}>
+          <View style={[styles.bottom]}>
+            <TouchableOpacity style={[styles.button,{backgroundColor:"#dc6e35",marginBottom:20}]} onPress={this.login}>
+              <Text style={[styles.buttonText]}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.button,styles.whiteBorder]} onPress={this.createAccount}>
+              <Text style={[styles.buttonText]}>Create Account</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      </View>
+    );
+  }
+};
 
 const styles = StyleSheet.create({
+  bottom:{
+    position:"absolute",
+    bottom:100,
+    flex:1
+  },
   button:{
     height:50,
-    width: windowWidth -40,
-    marginLeft:20,
-    borderColor : 'red',
+    width: windowWidth - 60,
+    marginLeft:30,
+    borderColor: '#dc6e35',
     borderWidth:1,
     borderStyle:"solid",
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    borderRadius:10
+  },
+  buttonText:{
+    color:"#ffffff",
+    fontSize:16
+  },
+  whiteBorder:{
+    borderColor:"#ffffff",
   }
 });
 

@@ -1,5 +1,5 @@
 /**
- * @format
+ *  配置router
  */
 import React from 'react';
 import {AppRegistry} from 'react-native';
@@ -10,18 +10,26 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //pages
 import App from './App';
-import Test from './src/pages/test';
+import Login from './src/screens/login/login';//登陆页
+import CreateAccount from './src/screens/login/createAccount';//创建账户
 
 const Stack = createStackNavigator();
 
 const RootRouter = () => (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Test">
+      <Stack.Navigator initialRouteName="App">
         <Stack.Screen 
-          name="Home" 
+          name="App" 
           component={App} 
-          options={({navigation,route})=>({title:route?.params?.name})}/>
-        <Stack.Screen name="Test" component={Test} options={{title:"Test"}}/>
+          options={{headerShown:false}}/>
+        <Stack.Screen 
+          name="Login" 
+          component={Login} 
+          options={{headerShown:false}}/>
+        <Stack.Screen 
+          name="CreateAccount" 
+          component={CreateAccount} 
+          options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
 ) 
